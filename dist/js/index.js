@@ -7,8 +7,6 @@ const speed = document.querySelector('.speed')
 const pitch = document.querySelector('.pitch')
 const synth = window.speechSynthesis
 
-
-
 let voices = []
 
 function populateVoiceList() {
@@ -34,14 +32,12 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
 }
 
-
 sendButton.addEventListener('click', () => {
-
     let text = inputText.textContent
     if (text === '') return
     let utterance = new SpeechSynthesisUtterance(text)
-
     const selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name')
+   
     for (let i = 0; i < voices.length; i++) {
         if (voices[i].name === selectedOption) {
             utterance.voice = voices[i];
@@ -49,7 +45,6 @@ sendButton.addEventListener('click', () => {
     }
 
     if (sendButton.textContent === 'Send') {
-
         utterance.pitch = pitch.value
         utterance.rate = speed.value
         speechSynthesis.speak(utterance);
@@ -64,15 +59,10 @@ sendButton.addEventListener('click', () => {
         console.log("Speech has finished.");
         sendButton.textContent = 'Send'
     };
-
 })
-
-
-
 
 settingButton.addEventListener('click', () => {
     modal.classList.toggle('open')
-console.log(pitch.value)
 })
 
 
