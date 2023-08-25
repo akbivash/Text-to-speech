@@ -4,10 +4,9 @@
     box-sizing: border-box;
 }
 html{
-    overflow-y: scroll;
 }
 body{
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .wrapper{
@@ -25,13 +24,26 @@ body{
 .wrapper .message-container{
     display: grid;
     gap: 10px;
+    place-items: start;
+    justify-content: start;
+ max-height: 50vh;
+    overflow-y: scroll;
+    padding-right: 10px;
 }
 .message-container span{
     border: 1px solid gray;
     padding: 10px;
     border-radius: 10px;
+    height: fit-content;
+}
+.wrapper .message-container::-webkit-scrollbar{
+    width: 4px;border-radius: 30px;
+    background: #c8c8c8;
 }
 
+.wrapper .message-container::-webkit-scrollbar-thumb{
+    background: #878686;
+}
 
 .start-button{
     padding: 10px;
@@ -44,23 +56,41 @@ body{
 
 .voice-select{
     max-width: 150px;
+    padding: 5px;
 }
 
-.input-container {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
+.input-wrapper{
+    width: 100%;
+display: flex;
+width: 100%;
 max-width: 500px;
-  padding: 10px;
+border: 1px solid #ccc;
+}
+.input-container {
+    position: relative;
+
+  border-radius: 5px;
+width: 100%;
   display: grid;
 gap: 10px;
+height: 50px;
+overflow-y: scroll;
   background-color: white;
 }
 
+.input-container::-webkit-scrollbar{
+    display: none;
+}
+.input-container::-webkit-scrollbar{
+    display: none;
+}
+
 .input-text {
-  min-height: 50px;
   border: none;
-  width: 100%;
+height: 50px;
+padding: 10px;
+overflow-y: scroll;
+position: relative;
   outline: none;
   overflow: hidden;
   word-wrap: break-word;
@@ -68,5 +98,32 @@ gap: 10px;
 }
 .send-button{
     width: fit-content;
-  
+  /* position: absolute; */
+bottom: 0;
+right: 0;
+padding: 10px;
+}
+
+.setting{
+    position: fixed;
+    right: 10px;
+   top: 10px;
+   font-size: 2rem;
+   cursor: pointer;
+}
+/* modal  */
+.modal{
+    display: none;
+    gap: 1rem;
+    place-items: center;
+    padding: 1rem;
+border: 1px solid #ccc;
+width: fit-content;
+position: fixed;
+top: 4rem;
+right: 0;
+background: white;
+}
+.modal.open{
+    display: grid;
 }
