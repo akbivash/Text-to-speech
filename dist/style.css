@@ -56,15 +56,22 @@ background: rgb(1, 156, 170);
   border: none;
   gap: 10px;
   align-items: center;
- border :1px solid rgb(1, 156, 170);
- color: #000;
+  color: #fff;
+background: rgb(1, 156, 170);
 }
 
 .voice-select {
   max-width: 150px;
-  padding: 5px;
+  padding: 10px;
   color: #000;
+
+outline: none;
+border: 1px solid rgb(1, 156, 170);
 }
+
+/* slider  */
+
+
 
 .input-wrapper {
   width: 100%;

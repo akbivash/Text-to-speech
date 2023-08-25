@@ -44,10 +44,11 @@ sendButton.addEventListener('click', () => {
         }
     }
 
+    utterance.pitch= pitch.value
+    utterance.rate = speed.value
     if (sendButton.textContent === 'Send') {
-        utterance.pitch = pitch.value
-        utterance.rate = speed.value
-        speechSynthesis.speak(utterance);
+     
+        synth.speak(utterance);
         sendButton.textContent = 'Cancel'
     } else {
         sendButton.textContent = 'Send'
@@ -59,6 +60,10 @@ sendButton.addEventListener('click', () => {
         console.log("Speech has finished.");
         sendButton.textContent = 'Send'
     };
+
+    utterance.onerror = function(e){
+        sendButton.textContent = 'Send'
+    }
 })
 
 settingButton.addEventListener('click', () => {
